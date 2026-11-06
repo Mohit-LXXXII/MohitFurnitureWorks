@@ -4,86 +4,78 @@ export default function Testimonials() {
       id: 1,
       name: 'Rajesh Kumar',
       role: 'Homeowner',
-      comment: 'Exceptional quality and craftsmanship! The furniture exceeded our expectations. Highly recommend!',
+      comment: 'Exceptional quality and craftsmanship. The furniture exceeded our expectations and completely transformed our home.',
       rating: 5,
-      image: '👨‍💼',
+      image: '👨‍💼'
     },
     {
       id: 2,
       name: 'Priya Sharma',
       role: 'Interior Designer',
-      comment: 'Working with Mohit Furniture Works has been amazing. Their custom designs are phenomenal!',
+      comment: 'Working with Mohit Furniture Works has been a seamless experience. Their custom designs are elegant and highly functional.',
       rating: 5,
-      image: '👩‍💼',
+      image: '👩‍💼'
     },
     {
       id: 3,
       name: 'Amit Patel',
       role: 'Business Owner',
-      comment: 'Professional service from start to finish. Our office looks stunning with their furniture.',
+      comment: 'Professional service from start to finish. Our office looks polished and welcoming thanks to their craftsmanship.',
       rating: 5,
-      image: '👨‍💻',
-    },
+      image: '👨‍💻'
+    }
   ]
 
   return (
-    <section id="testimonials" className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="section-title">What Our Customers Say</h2>
-          <p className="section-subtitle">Real reviews from satisfied customers</p>
+    <section id="testimonials" className="bg-[#f8f3ef] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center md:mb-16">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#90755d]">Testimonials</p>
+          <h2 className="section-title">What our customers say</h2>
+          <p className="section-subtitle">Real feedback from people who chose quality, comfort, and craftsmanship.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-gray-100"
+              className="rounded-[1.6rem] border border-[#eadfd5] bg-white p-7 shadow-[0_18px_36px_rgba(54,41,31,0.05)]"
             >
-              {/* Stars */}
-              <div className="flex items-center gap-1 mb-4">
+              <div className="mb-5 flex items-center gap-1">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400">⭐</span>
+                  <span key={i} className="text-lg text-[#d9a85d]">★</span>
                 ))}
               </div>
 
-              {/* Comment */}
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonial.comment}"
+              <p className="mb-7 text-lg leading-8 text-[#4f4844] italic">
+                “{testimonial.comment}”
               </p>
 
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-2xl">
+              <div className="flex items-center gap-4 border-t border-[#efe3d9] pt-5">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#d39d68] to-[#84583d] text-2xl">
                   {testimonial.image}
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900">{testimonial.name}</p>
-                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                  <p className="font-semibold text-[#1d1a18]">{testimonial.name}</p>
+                  <p className="text-sm text-[#6e655f]">{testimonial.role}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-16 grid md:grid-cols-4 gap-8 text-center">
-          <div>
-            <p className="text-4xl font-bold gradient-text">1000+</p>
-            <p className="text-gray-600 mt-2">Happy Customers</p>
-          </div>
-          <div>
-            <p className="text-4xl font-bold gradient-text">500+</p>
-            <p className="text-gray-600 mt-2">Projects Completed</p>
-          </div>
-          <div>
-            <p className="text-4xl font-bold gradient-text">15+</p>
-            <p className="text-gray-600 mt-2">Years Experience</p>
-          </div>
-          <div>
-            <p className="text-4xl font-bold gradient-text">4.9/5</p>
-            <p className="text-gray-600 mt-2">Average Rating</p>
-          </div>
+        <div className="mt-16 grid gap-6 text-center md:grid-cols-4">
+          {[
+            ['1000+', 'Happy customers'],
+            ['500+', 'Projects completed'],
+            ['15+', 'Years experience'],
+            ['4.9/5', 'Average rating']
+          ].map(([value, label]) => (
+            <div key={label} className="rounded-[1.4rem] border border-[#eadfd5] bg-white p-6 shadow-sm">
+              <p className="text-3xl font-semibold tracking-[-0.06em] text-[#8d5e3b] md:text-4xl">{value}</p>
+              <p className="mt-2 text-sm text-[#5e5652]">{label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

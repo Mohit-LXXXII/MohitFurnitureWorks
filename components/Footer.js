@@ -2,58 +2,59 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="contact" className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
+    <footer id="contact" className="bg-[#171412] text-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 md:py-20">
+        <div className="mb-12 grid gap-10 md:grid-cols-4">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#d29a68] to-[#6f4d37] font-bold text-white">
+                M
               </div>
               <div>
-                <h3 className="font-bold">Mohit</h3>
-                <p className="text-xs text-purple-400">Furniture Works</p>
+                <h3 className="text-lg font-semibold text-white">Mohit</h3>
+                <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-[#d1b39b]">Furniture Works</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Premium quality furniture and expert craftsmanship for over 15 years.
+            <p className="max-w-xs text-sm leading-7 text-[#d7cbc3]">
+              Premium furniture and custom craftsmanship designed to improve the way you live.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#home" className="hover:text-blue-400 transition">Home</a></li>
-              <li><a href="#about" className="hover:text-blue-400 transition">About</a></li>
-              <li><a href="#products" className="hover:text-blue-400 transition">Products</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition">Services</a></li>
+            <h4 className="mb-5 text-base font-semibold text-white">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-[#d7cbc3]">
+              {['Home', 'About', 'Products', 'Services'].map((item) => (
+                <li key={item}>
+                  <a href={`#${item === 'Home' ? 'home' : item.toLowerCase()}`} className="transition hover:text-[#f0caa1]">
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Services */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#services" className="hover:text-blue-400 transition">Custom Design</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition">Repair & Restoration</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition">Delivery & Installation</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition">Consultation</a></li>
+            <h4 className="mb-5 text-base font-semibold text-white">Services</h4>
+            <ul className="space-y-3 text-sm text-[#d7cbc3]">
+              {['Custom Design', 'Repair & Restoration', 'Delivery & Installation', 'Consultation'].map((service) => (
+                <li key={service}>
+                  <a href="#services" className="transition hover:text-[#f0caa1]">
+                    {service}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-gray-400 text-sm">
+            <h4 className="mb-5 text-base font-semibold text-white">Contact Us</h4>
+            <ul className="space-y-3 text-sm text-[#d7cbc3]">
               <li className="flex items-start gap-2">
                 <span>📍</span>
                 <span>Nankya Kheda, Makhupura, Ajmer, Rajasthan</span>
               </li>
               <li>
-                <a href="tel:+919784268425" className="flex items-center gap-2 hover:text-blue-400 transition">
+                <a href="tel:+919784268425" className="flex items-center gap-2 transition hover:text-[#f0caa1]">
                   <span>📞</span>
                   <span>+91 9784268425</span>
                 </a>
@@ -62,34 +63,30 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Working Hours */}
-        <div className="bg-gradient-to-r from-blue-900 to-purple-900 rounded-xl p-6 mb-12">
-          <h4 className="font-bold text-lg mb-4">Working Hours</h4>
-          <div className="grid md:grid-cols-3 gap-6 text-sm">
+        <div className="mb-12 rounded-[1.5rem] border border-[#352d29] bg-[linear-gradient(135deg,#211c1a_0%,#2d241f_100%)] p-6 md:p-8">
+          <h4 className="mb-5 text-lg font-semibold text-white">Working Hours</h4>
+          <div className="grid gap-6 text-sm md:grid-cols-3">
             <div>
-              <p className="text-gray-300">Monday - Friday</p>
-              <p className="font-semibold text-blue-300">9:00 AM - 8:00 PM</p>
+              <p className="text-[#d2c5bb]">Monday - Friday</p>
+              <p className="mt-1 font-semibold text-[#f0caa1]">9:00 AM - 8:00 PM</p>
             </div>
             <div>
-              <p className="text-gray-300">Saturday</p>
-              <p className="font-semibold text-blue-300">10:00 AM - 6:00 PM</p>
+              <p className="text-[#d2c5bb]">Saturday</p>
+              <p className="mt-1 font-semibold text-[#f0caa1]">10:00 AM - 6:00 PM</p>
             </div>
             <div>
-              <p className="text-gray-300">Sunday</p>
-              <p className="font-semibold text-blue-300">11:00 AM - 5:00 PM</p>
+              <p className="text-[#d2c5bb]">Sunday</p>
+              <p className="mt-1 font-semibold text-[#f0caa1]">11:00 AM - 5:00 PM</p>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} Mohit Furniture Works. All rights reserved.
-          </p>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy</a>
-            <span className="text-gray-600">|</span>
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition">Terms of Service</a>
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-[#312927] pt-8 text-sm text-[#d7cbc3] md:flex-row">
+          <p>© {currentYear} Mohit Furniture Works. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="#" className="transition hover:text-[#f0caa1]">Privacy Policy</a>
+            <span className="text-[#716a65]">|</span>
+            <a href="#" className="transition hover:text-[#f0caa1]">Terms of Service</a>
           </div>
         </div>
       </div>

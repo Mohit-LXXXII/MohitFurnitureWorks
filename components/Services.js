@@ -2,76 +2,74 @@ export default function Services() {
   const services = [
     {
       id: 1,
-      title: 'Custom Furniture Design',
-      description: 'Personalized furniture crafted according to your specifications and preferences',
-      icon: '🎨',
+      title: 'Custom furniture design',
+      description: 'Bespoke furniture tailored to your layout, taste, and practical needs.',
+      icon: '🎨'
     },
     {
       id: 2,
-      title: 'Furniture Repair & Restoration',
-      description: 'Professional repair and restoration services to bring old furniture back to life',
-      icon: '🔧',
+      title: 'Repair & restoration',
+      description: 'Professional repairs that bring worn-out pieces back to life with care.',
+      icon: '🔧'
     },
     {
       id: 3,
-      title: '25+ Years Experience',
-      description: 'Over two decades of expertise in creating quality furniture and satisfied customers',
-      icon: '⭐',
+      title: '25+ years of experience',
+      description: 'Craftsmanship rooted in decades of hands-on knowledge and trusted service.',
+      icon: '⭐'
     },
     {
       id: 4,
-      title: 'Delivery & Installation',
-      description: 'Professional delivery and installation services with care and precision',
-      icon: '🚚',
+      title: 'Delivery & installation',
+      description: 'Smooth setup from your showroom to your home, handled with precision.',
+      icon: '🚚'
     },
     {
       id: 5,
-      title: 'Affordable & Durable Furniture',
-      description: 'Premium quality furniture at competitive prices built to last for years',
-      icon: '💎',
+      title: 'Affordable durability',
+      description: 'Practical, long-lasting furniture built to fit everyday family life.',
+      icon: '💎'
     },
     {
       id: 6,
-      title: 'Warranty & Support',
-      description: '24/7 customer support and extended warranty options for peace of mind',
-      icon: '✅',
-    },
+      title: 'Warranty & support',
+      description: 'Helpful guidance and dependable support long after your purchase.',
+      icon: '✅'
+    }
   ]
 
   return (
-    <section id="services" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="section-title">Our Services</h2>
-          <p className="section-subtitle">Comprehensive solutions for all your furniture needs</p>
+    <section id="services" className="py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center md:mb-16">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#90755d]">Our services</p>
+          <h2 className="section-title">Everything you need for a better space</h2>
+          <p className="section-subtitle">Comprehensive furniture solutions designed around comfort, function, and style.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <div
               key={service.id}
-              className="p-8 rounded-xl border border-gray-200 hover:border-blue-300 bg-gradient-to-br from-white to-gray-50 hover:shadow-lg transition-all duration-300 group"
+              className="group rounded-[1.6rem] border border-[#e9dfd5] bg-[linear-gradient(180deg,#fffdfb_0%,#f8f3ef_100%)] p-7 shadow-[0_18px_36px_rgba(80,63,52,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_40px_rgba(80,63,52,0.08)]"
             >
-              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#f7ebdf] text-3xl shadow-inner transition-transform duration-300 group-hover:scale-110">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{service.description}</p>
+              <h3 className="mb-3 text-2xl font-semibold tracking-[-0.05em] text-[#1e1a18]">{service.title}</h3>
+              <p className="text-base leading-7 text-[#5d534f]">{service.description}</p>
             </div>
           ))}
         </div>
 
-        {/* CTA Section */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12 border border-blue-100">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Need Custom Furniture?
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Our design team is ready to help you create the perfect furniture pieces for your space.
+          <div className="rounded-[2rem] border border-[#e9dfd5] bg-[radial-gradient(circle_at_top,_rgba(183,122,71,0.12),_transparent_35%),linear-gradient(135deg,#fffdfb_0%,#f5eee7_100%)] p-8 shadow-[0_24px_50px_rgba(60,45,35,0.06)] md:p-12">
+            <h3 className="text-3xl font-semibold tracking-[-0.05em] text-[#1a1817] md:text-4xl">Need a custom solution?</h3>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#5d534f] md:text-lg">
+              Talk with our design team to create furniture that fits your room, your routine, and your taste beautifully.
             </p>
-            <a href="tel:+919784268425" className="btn-primary inline-block">
-              Get a Free Consultation
+            <a href="tel:+919784268425" className="btn-primary mt-8">
+              Get a free consultation
             </a>
           </div>
         </div>

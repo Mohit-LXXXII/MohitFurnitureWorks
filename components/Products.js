@@ -2,73 +2,75 @@ export default function Products() {
   const products = [
     {
       id: 1,
-      name: 'Luxury Sofas',
-      description: 'Comfortable and elegant sofas for your living room',
-      icon: '🛋️',
-      color: 'from-blue-500 to-blue-600',
+      name: 'Modern wardrobes',
+      description: 'Tailored storage that keeps every room feeling open and refined.',
+      image: '/furniture-1.jpg'
     },
     {
       id: 2,
-      name: 'Dining Sets',
-      description: 'Exquisite dining furniture for family gatherings',
-      icon: '🪑',
-      color: 'from-purple-500 to-purple-600',
+      name: 'Dressing units',
+      description: 'Elegant, practical solutions for a polished bedroom experience.',
+      image: '/furniture-2.jpg'
     },
     {
       id: 3,
-      name: 'Bedroom Collection',
-      description: 'Luxurious beds and bedroom essentials',
-      icon: '🛏️',
-      color: 'from-blue-400 to-purple-500',
+      name: 'Bedroom styling',
+      description: 'Comfort-driven designs that turn bedrooms into calming retreats.',
+      image: '/furniture-3.jpg'
     },
     {
       id: 4,
-      name: 'Office Furniture',
-      description: 'Professional furniture for workspaces',
-      icon: '🖥️',
-      color: 'from-purple-400 to-blue-500',
+      name: 'Wooden doors',
+      description: 'Clean lines and premium finishes for lasting visual impact.',
+      image: '/furniture-4.jpg'
     },
     {
       id: 5,
-      name: 'Custom Woodwork',
-      description: 'Bespoke wooden pieces tailored to your needs',
-      icon: '🪵',
-      color: 'from-blue-500 to-blue-600',
+      name: 'Kitchen units',
+      description: 'Smart layouts designed for everyday ease and elevated aesthetics.',
+      image: '/furniture-5.jpg'
     },
     {
       id: 6,
-      name: 'Storage Solutions',
-      description: 'Smart and stylish storage for every room',
-      icon: '📦',
-      color: 'from-purple-500 to-purple-600',
-    },
+      name: 'Custom woodwork',
+      description: 'Bespoke furniture crafted around your lifestyle and space.',
+      image: '/mohit-furniture.webp'
+    }
   ]
 
   return (
-    <section id="products" className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="section-title">Featured Furniture Collections</h2>
-          <p className="section-subtitle">Explore our diverse range of premium furniture pieces</p>
+    <section id="products" className="bg-[#f8f3ef] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center md:mb-16">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#90755d]">Our collection</p>
+          <h2 className="section-title">Featured furniture collections</h2>
+          <p className="section-subtitle">Thoughtful pieces designed to balance beauty, comfort, and utility.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {products.map((product) => (
-            <div
+            <article
               key={product.id}
-              className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200"
+              className="group overflow-hidden rounded-[1.75rem] border border-[#eadfd5] bg-white shadow-[0_22px_50px_rgba(57,42,31,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(57,42,31,0.1)]"
             >
-              <div className={`h-40 bg-gradient-to-br ${product.color} flex items-center justify-center`}>
-                <span className="text-6xl">{product.icon}</span>
+              <div className="overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="h-64 w-full object-cover transition duration-500 group-hover:scale-105"
+                />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-4">{product.description}</p>
-                <button className="w-full py-2 px-4 bg-gray-100 text-gray-700 rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 font-semibold">
-                  Learn More
+              <div className="space-y-4 p-6">
+                <div>
+                  <h3 className="text-2xl font-semibold tracking-[-0.05em] text-[#1f1b19]">{product.name}</h3>
+                </div>
+                <p className="text-base leading-7 text-[#5e5652]">{product.description}</p>
+                <button className="inline-flex items-center gap-2 rounded-full border border-[#e7d9cc] bg-[#f8f3ef] px-4 py-2 text-sm font-medium text-[#2d2825] hover:border-[#b77a47] hover:bg-[#f4e7dc]">
+                  Learn more
+                  <span aria-hidden="true">→</span>
                 </button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

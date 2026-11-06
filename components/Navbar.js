@@ -6,51 +6,64 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">M</span>
+    <header className="sticky top-0 z-50 border-b border-[#eae0d5] bg-[#faf6f2]/90 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#b77845] to-[#4f3424] shadow-[0_12px_24px_rgba(129,85,45,0.2)]">
+            <span className="text-lg font-bold text-white">M</span>
           </div>
           <div>
-            <h1 className="font-bold text-gray-900">Mohit</h1>
-            <p className="text-xs text-purple-600">Furniture Works</p>
+            <h1 className="text-lg font-semibold tracking-[-0.04em] text-[#1f1c1a]">Mohit</h1>
+            <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-[#8a6c53]">Furniture Works</p>
           </div>
         </div>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center space-x-8">
-          <li><a href="#home" className="text-gray-700 hover:text-blue-500 font-medium">Home</a></li>
-          <li><a href="#about" className="text-gray-700 hover:text-blue-500 font-medium">About</a></li>
-          <li><a href="#products" className="text-gray-700 hover:text-blue-500 font-medium">Products</a></li>
-          <li><a href="#services" className="text-gray-700 hover:text-blue-500 font-medium">Services</a></li>
-          <li><a href="#testimonials" className="text-gray-700 hover:text-blue-500 font-medium">Reviews</a></li>
-          <li><a href="#contact" className="text-gray-700 hover:text-blue-500 font-medium">Contact</a></li>
+        <ul className="hidden items-center gap-8 md:flex">
+          {['Home', 'About', 'Products', 'Services', 'Reviews', 'Contact'].map((item) => (
+            <li key={item}>
+              <a
+                href={`#${item === 'Home' ? 'home' : item.toLowerCase() === 'reviews' ? 'testimonials' : item.toLowerCase() === 'contact' ? 'contact' : item.toLowerCase()}`}
+                className="text-sm font-medium text-[#4d4743] hover:text-[#8b5c3a]"
+              >
+                {item}
+              </a>
+            </li>
+          ))}
         </ul>
 
-        {/* Mobile menu button */}
+        <div className="hidden items-center gap-3 md:flex">
+          <a href="tel:+919784268425" className="btn-secondary">
+            Call Now
+          </a>
+        </div>
+
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col space-y-1"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-[#e2d8cf] bg-white/80 md:hidden"
           aria-label="Menu"
         >
-          <span className="w-6 h-0.5 bg-gray-900"></span>
-          <span className="w-6 h-0.5 bg-gray-900"></span>
-          <span className="w-6 h-0.5 bg-gray-900"></span>
+          <div className="flex flex-col gap-1.5">
+            <span className="block h-0.5 w-5 rounded-full bg-[#2a241f]"></span>
+            <span className="block h-0.5 w-5 rounded-full bg-[#2a241f]"></span>
+            <span className="block h-0.5 w-5 rounded-full bg-[#2a241f]"></span>
+          </div>
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4">
+        <div className="border-t border-[#ece2d8] bg-white/95 px-4 py-4 md:hidden">
           <ul className="space-y-3">
-            <li><a href="#home" className="text-gray-700 hover:text-blue-500 block">Home</a></li>
-            <li><a href="#about" className="text-gray-700 hover:text-blue-500 block">About</a></li>
-            <li><a href="#products" className="text-gray-700 hover:text-blue-500 block">Products</a></li>
-            <li><a href="#services" className="text-gray-700 hover:text-blue-500 block">Services</a></li>
-            <li><a href="#testimonials" className="text-gray-700 hover:text-blue-500 block">Reviews</a></li>
-            <li><a href="#contact" className="text-gray-700 hover:text-blue-500 block">Contact</a></li>
+            {['Home', 'About', 'Products', 'Services', 'Reviews', 'Contact'].map((item) => (
+              <li key={item}>
+                <a
+                  href={`#${item === 'Home' ? 'home' : item.toLowerCase() === 'reviews' ? 'testimonials' : item.toLowerCase() === 'contact' ? 'contact' : item.toLowerCase()}`}
+                  className="block rounded-xl px-3 py-2 text-sm font-medium text-[#4d4743] hover:bg-[#f7efe8] hover:text-[#895b3d]"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       )}

@@ -1,52 +1,43 @@
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image Placeholder */}
-          <div className="relative h-96 rounded-2xl overflow-hidden shadow-lg">
+    <section id="about" className="py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-[#eadfd5] bg-[#f5efe9] p-3 shadow-[0_28px_60px_rgba(54,41,31,0.08)]">
             <img
               src="/mohit-furniture.webp"
               alt="Mohit Furniture Works Showroom"
-              className="w-full h-full object-cover"
+              className="h-[420px] w-full rounded-[1.5rem] object-cover md:h-[500px]"
             />
           </div>
 
-          {/* Content */}
-          <div className="space-y-6">
+          <div className="space-y-7">
             <div>
-              <h2 className="section-title">About Mohit Furniture Works</h2>
-              <p className="section-subtitle">
-                Crafting Dreams into Reality Since 2004
-              </p>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#90755d]">About us</p>
+              <h2 className="section-title">Built for comfortable living</h2>
             </div>
 
-            <p className="text-gray-700 leading-relaxed text-lg">
-              Welcome to Mohit Furniture Works, where tradition meets contemporary design. With over 25 years of experience, we've been serving the community with premium furniture solutions and exceptional craftsmanship.
+            <p className="text-lg leading-8 text-[#524b47]">
+              Welcome to Mohit Furniture Works, where craftsmanship meets contemporary design. For over 25 years, we have helped families and businesses create spaces that feel warm, functional, and distinctly their own.
             </p>
 
-            <p className="text-gray-700 leading-relaxed text-lg">
-              Our team of expert craftsmen creates bespoke furniture pieces tailored to your unique style and needs. From residential to commercial projects, we pride ourselves on quality, durability, and customer satisfaction.
+            <p className="text-lg leading-8 text-[#524b47]">
+              From modular kitchens and premium wardrobes to custom woodwork and practical storage solutions, each piece is designed with lasting quality, thoughtful detail, and unmatched attention to finish.
             </p>
 
-            <ul className="space-y-3 pt-4">
-              <li className="flex items-center space-x-3">
-                <span className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">✓</span>
-                <span className="text-gray-700">Premium Quality Materials</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <span className="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm">✓</span>
-                <span className="text-gray-700">Expert Craftsmanship</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <span className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">✓</span>
-                <span className="text-gray-700">Custom Design Solutions</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <span className="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm">✓</span>
-                <span className="text-gray-700">On-Time Delivery</span>
-              </li>
-            </ul>
+            <div className="grid gap-4 pt-3 sm:grid-cols-2">
+              {[
+                'Premium quality materials',
+                'Expert craftsmanship',
+                'Custom design solutions',
+                'On-time delivery'
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-2xl border border-[#eadfd5] bg-white/70 p-4 shadow-sm">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#b77a47] text-sm font-bold text-white">✓</span>
+                  <span className="text-sm font-medium text-[#2f2925]">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
