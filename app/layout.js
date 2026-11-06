@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import FloatingCallButton from '@/components/FloatingCallButton'
+import SiteIntro from '@/components/SiteIntro'
 import './globals.css'
 
 export const metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
+        <SiteIntro />
         {children}
         <FloatingCallButton />
       </body>

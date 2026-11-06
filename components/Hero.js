@@ -21,7 +21,7 @@ export default function Hero() {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#211a16]/55 via-transparent to-white/10" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 sm:p-7">
                   <div className="max-w-[230px]">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/75">Mohit Furniture Works</p>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/75">Kailash Chand Sharma</p>
                     <p className="mt-1 text-lg font-medium tracking-[-0.03em] text-white sm:text-xl">Crafted with care</p>
                   </div>
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/35 bg-white/15 text-lg text-white backdrop-blur-md" aria-hidden="true">✦</span>

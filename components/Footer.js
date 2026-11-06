@@ -23,7 +23,7 @@ export default function Footer() {
           <div>
             <h4 className="mb-5 text-base font-semibold text-white">Quick Links</h4>
             <ul className="space-y-3 text-sm text-[#d7cbc3]">
-              {['Home', 'About', 'Products', 'Services'].map((item) => (
+              {['Home', 'About', 'Services'].map((item) => (
                 <li key={item}>
                   <a href={`#${item === 'Home' ? 'home' : item.toLowerCase()}`} className="transition hover:text-[#f0caa1]">
                     {item}

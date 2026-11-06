@@ -1,9 +1,29 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const menuDialogRef = useRef(null)
+
+  useEffect(() => {
+    const dialog = menuDialogRef.current
+    if (!dialog) return
+
+    if (isOpen && !dialog.open) dialog.showModal()
+    if (!isOpen && dialog.open) dialog.close()
+  }, [isOpen])
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [isOpen])
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#eae0d5] bg-[#faf6f2]/90 backdrop-blur-md">
@@ -19,7 +39,7 @@ export default function Navbar() {
         </div>
 
         <ul className="hidden items-center gap-8 md:flex">
-          {['Home', 'About', 'Products', 'Services', 'Reviews', 'Contact'].map((item) => (
+          {['Home', 'About', 'Services', 'Reviews', 'Contact'].map((item) => (
             <li key={item}>
               <a
                 href={`#${item === 'Home' ? 'home' : item.toLowerCase() === 'reviews' ? 'testimonials' : item.toLowerCase() === 'contact' ? 'contact' : item.toLowerCase()}`}
@@ -40,9 +60,11 @@ export default function Navbar() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex h-11 w-11 items-center justify-center rounded-full border border-[#e2d8cf] bg-white/80 md:hidden"
-          aria-label="Menu"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1.5" aria-hidden="true">
             <span className="block h-0.5 w-5 rounded-full bg-[#2a241f]"></span>
             <span className="block h-0.5 w-5 rounded-full bg-[#2a241f]"></span>
             <span className="block h-0.5 w-5 rounded-full bg-[#2a241f]"></span>
@@ -50,23 +72,50 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {isOpen && (
-        <div className="border-t border-[#ece2d8] bg-white/95 px-4 py-4 md:hidden">
-          <ul className="space-y-3">
-            {['Home', 'About', 'Products', 'Services', 'Reviews', 'Contact'].map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item === 'Home' ? 'home' : item.toLowerCase() === 'reviews' ? 'testimonials' : item.toLowerCase() === 'contact' ? 'contact' : item.toLowerCase()}`}
-                  className="block rounded-xl px-3 py-2 text-sm font-medium text-[#4d4743] hover:bg-[#f7efe8] hover:text-[#895b3d]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
+      <dialog
+        ref={menuDialogRef}
+        id="mobile-menu"
+        aria-labelledby="mobile-menu-title"
+        className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-transparent p-0 text-[#1f1c1a] backdrop:bg-[#211a16]/45 md:hidden"
+        onClose={() => setIsOpen(false)}
+        onCancel={() => setIsOpen(false)}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) setIsOpen(false)
+        }}
+      >
+        <div className="flex min-h-full items-start justify-center px-4 pt-20 sm:items-center sm:pt-0">
+          <div className="w-full max-w-sm rounded-[2rem] border border-[#e8dfd6] bg-[#fffdfb] p-5 shadow-[0_24px_70px_rgba(33,26,22,0.22)]">
+            <div className="mb-4 flex items-center justify-between border-b border-[#e8dfd6] pb-4">
+              <p id="mobile-menu-title" className="text-sm font-semibold tracking-wide text-[#81552d]">Explore</p>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e2d8cf] bg-white text-xl text-[#4d4743]"
+                aria-label="Close menu"
+                autoFocus
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <ul className="space-y-1">
+              {['Home', 'About', 'Services', 'Reviews', 'Contact'].map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item === 'Home' ? 'home' : item.toLowerCase() === 'reviews' ? 'testimonials' : item.toLowerCase() === 'contact' ? 'contact' : item.toLowerCase()}`}
+                    className="block rounded-xl px-4 py-3 text-base font-medium text-[#4d4743] hover:bg-[#f7efe8] hover:text-[#895b3d]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a href="tel:+919784268425" className="btn-primary mt-4 w-full">
+              Call Now
+            </a>
+          </div>
         </div>
-      )}
+      </dialog>
     </header>
   )
 }
